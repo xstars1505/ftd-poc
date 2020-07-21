@@ -1,0 +1,12 @@
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.p-button {
+  font-size: initial;
+  &:focus {
+    box-shadow: none !important;
+  }
+}

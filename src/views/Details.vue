@@ -1,144 +1,198 @@
 <template>
-  <ValidationObserver v-slot="{ invalid }" class="p-d-flex p-flex-column">
-    <form @submit.prevent="onSubmit" class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-12 p-md-6">
-        <div class="p-field">
-          <label for="orderItemNo">Order Item No</label>
-          <InputText
-            id="orderItemNo"
-            v-model="orderItemNo"
-            type="text"
-            disabled
-          />
-        </div>
-      </div>
-      <div class="p-field p-col-12 p-md-6">
-        <div class="p-field">
-          <label for="imageUrl">Image</label>
-          <InputText id="imageUrl" v-model="imageUrl" type="text" />
-        </div>
-      </div>
-      <div class="p-field p-col-12 p-md-6">
-        <ValidationProvider name="url" rules="required" v-slot="{ errors }">
-          <div class="p-field">
-            <label for="url">Url</label>
-            <InputText
-              id="url"
-              v-model="url"
-              type="text"
-              :class="{ 'p-invalid': errors[0] }"
-            />
-            <small class="p-invalid">{{ errors[0] }}</small>
-          </div>
-        </ValidationProvider>
-      </div>
-      <div class="p-field p-col-12 p-md-6">
-        <ValidationProvider
-          name="purchaseQuantity"
-          rules="required"
-          v-slot="{ errors }"
-        >
-          <div class="p-field">
-            <label for="purchaseQuantity">Purchase Quantity</label>
-            <InputText
-              id="purchaseQuantity"
-              v-model="purchaseQuantity"
-              type="number"
-              :class="{ 'p-invalid': errors[0] }"
-            />
-            <small class="p-invalid">{{ errors[0] }}</small>
-          </div>
-        </ValidationProvider>
-      </div>
-      <div class="p-field p-col-12 p-md-6">
-        <ValidationProvider
-          name="unitPrice"
-          rules="required"
-          v-slot="{ errors }"
-        >
-          <div class="p-field">
-            <label for="unitPrice">Unit Price</label>
-            <InputText
-              id="unitPrice"
-              v-model="unitPrice"
-              type="number"
-              :class="{ 'p-invalid': errors[0] }"
-            />
-            <small class="p-invalid">{{ errors[0] }}</small>
-          </div>
-        </ValidationProvider>
-      </div>
-      <div class="p-field p-col-12 p-md-6">
-        <ValidationProvider
-          name="chinaDeliveryFee"
-          rules="required"
-          v-slot="{ errors }"
-        >
-          <div class="p-field">
-            <label for="chinaDeliveryFee">China Delivery Fee</label>
-            <InputText
-              id="chinaDeliveryFee"
-              v-model="chinaDeliveryFee"
-              type="number"
-              :class="{ 'p-invalid': errors[0] }"
-            />
-            <small class="p-invalid">{{ errors[0] }}</small>
-          </div>
-        </ValidationProvider>
-      </div>
-      <div class="p-field p-col-12">
-        <div class="p-field">
-          <label for="note">Note</label>
-          <Textarea id="note" v-model="note" :autoResize="true" rows="5" />
-        </div>
-      </div>
-    </form>
-    <div class="p-d-flex p-jc-end">
+  <div class="p-grid">
+    <div class="p-col">
       <Button
-        class="p-button-raised p-button-text p-button-plain p-mr-2"
-        label="Cancel"
-        type="button"
+        icon="pi pi-chevron-left"
+        label="Orders"
+        class="p-button-text p-pl-0"
         @click="goToList"
       />
-      <Button
-        class="p-button-raised"
-        label="Submit"
-        :disabled="invalid"
-        type="button"
-        @click="onSubmit"
-      />
+
+      <div class="p-d-flex p-align-baseline">
+        <h2 class="p-my-0">#10001</h2>
+        <span>2020/07/17 10:00 am</span>
+      </div>
+
+      <div class="actions">
+        <Button
+          icon="pi pi-print"
+          label="Print"
+          class="p-button-text p-button-secondary p-pl-0"
+        />
+        <Button
+          icon="pi pi-pencil"
+          label="Edit"
+          class="p-button-text p-button-secondary p-pl-0"
+        />
+        <Button
+          icon="pi pi-copy"
+          label="Duplicate"
+          class="p-button-text p-button-secondary p-pl-0"
+        />
+        <Button
+          icon="pi pi-times"
+          label="Cancel order"
+          class="p-button-text p-button-secondary p-pl-0"
+        />
+      </div>
+
+      <div class="p-grid">
+        <div class="p-col-12 p-md-8">
+          <Card class="p-mb-3">
+            <template slot="title">
+              List items (2)
+            </template>
+            <template slot="content">
+              <OrderItem
+                v-for="(item, index) in items"
+                :key="item.id"
+                v-bind="item"
+                :last="index === items.length - 1"
+              />
+            </template>
+          </Card>
+
+          <Card class="p-mb-3">
+            <template slot="title">
+              Paid
+            </template>
+            <template slot="content">
+              <ul>
+                <li>
+                  <label>Subtotal</label>
+                  <span> 40 円 </span>
+                </li>
+                <li>
+                  <label>Tax</label>
+                  <span> 4 円 </span>
+                </li>
+                <li>
+                  <label>Total</label>
+                  <span> 44 円 </span>
+                </li>
+                <hr />
+                <li>
+                  <label>Paid by customer</label>
+                  <span> 44 円 </span>
+                </li>
+              </ul>
+            </template>
+          </Card>
+
+          <div class="timeline">
+            <h3>Timeline</h3>
+            <Timeline
+              :timeline-items="dataTimeline"
+              :message-when-no-items="messageWhenNoItems"
+              :unique-year="true"
+              :show-day-and-month="true"
+              order="desc"
+            />
+          </div>
+        </div>
+
+        <div class="p-col-12 p-md-4">
+          <Card class="p-mb-6">
+            <template slot="title">
+              <div class="p-d-flex p-jc-between">
+                Notes
+                <Button label="Edit" class="p-button-link" />
+              </div>
+            </template>
+            <template slot="content">
+              Notes from customer
+            </template>
+          </Card>
+
+          <Card class="p-mb-1">
+            <template slot="title">
+              Customer
+            </template>
+            <template slot="content">
+              Customer Name
+            </template>
+          </Card>
+
+          <Card class="p-mb-1">
+            <template slot="title">
+              <div class="p-d-flex p-jc-between">
+                Contact information
+                <Button label="Edit" class="p-button-link" />
+              </div>
+            </template>
+            <template slot="content">
+              <p>Email Address</p>
+              <p>Phone number</p>
+            </template>
+          </Card>
+
+          <Card>
+            <template slot="title">
+              <div class="p-d-flex p-jc-between">
+                Shipping address
+                <Button label="Edit" class="p-button-link" />
+              </div>
+            </template>
+            <template slot="content">
+              <p>16 Ly Thuong Kiet, Hai Chau District, Da Nang</p>
+            </template>
+          </Card>
+        </div>
+      </div>
     </div>
-  </ValidationObserver>
+  </div>
 </template>
 
 <script>
-import InputText from "primevue/inputtext";
-import Textarea from "primevue/textarea";
 import Button from "primevue/button";
+import Card from "primevue/card";
+import OrderItem from "@/components/OrderItem";
+import Timeline from "timeline-vuejs";
+
 import router from "@/router";
 
 export default {
   name: "Details",
-  components: { InputText, Textarea, Button },
+  components: { OrderItem, Button, Card, Timeline },
   data: () => ({
-    orderItemNo: "CL00001-200715005-001",
-    url:
-      "https://item.taobao.com/item.htm?spm=a21bo.7929913.198967.15.1846417487NOuA&id=564064938812",
-    purchaseQuantity: "10",
-    unitPrice: "21",
-    chinaDeliveryFee: "100",
-    note: "This is a note",
-    imageUrl:
-      "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg"
+    items: [
+      {
+        id: 1,
+        name: "Shirt",
+        attributes: ["L", "Red"],
+        quantity: 2,
+        price: 10,
+        src:
+          "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg"
+      },
+      {
+        id: 2,
+        name: "Shirt",
+        attributes: ["M", "Red"],
+        quantity: 2,
+        price: 10,
+        src:
+          "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg"
+      }
+    ],
+    messageWhenNoItems: "There arent items",
+    dataTimeline: [
+      {
+        from: new Date(2020, 7, 10),
+        description: "You added a shipping address to this order.",
+        showDayAndMonth: true
+      },
+      {
+        from: new Date(2020, 7, 9),
+        description: "You manually marked this order as paid."
+      },
+      {
+        from: new Date(2020, 7, 8),
+        description: "You created order"
+      }
+    ]
   }),
   methods: {
-    onSubmit() {
-      this.$toast.add({
-        severity: "success",
-        life: 3000,
-        summary: "Update successfully"
-      });
-    },
     goToList() {
       router.push("/");
     }
@@ -146,4 +200,18 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+ul {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.p-card-title {
+  font-size: 1rem;
+}
+</style>

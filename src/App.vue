@@ -109,13 +109,15 @@
         <ul class="nav nav-aside">
           <li class="nav-label">注文管理</li>
           <li class="nav-item active">
-            <a href="javascript:void(0)" class="nav-link"
-              ><shopping-bag-icon
-                size="1.5x"
-                class="custom-class"
-              ></shopping-bag-icon>
-              <span>注文No一覧</span></a
-            >
+            <router-link to="/">
+              <a href="javascript:void(0)" class="nav-link"
+                ><shopping-bag-icon
+                  size="1.5x"
+                  class="custom-class"
+                ></shopping-bag-icon>
+                <span>注文No一覧</span></a
+              >
+            </router-link>
           </li>
           <li class="nav-item">
             <a href="javascript:void(0)" class="nav-link"
@@ -285,6 +287,10 @@ export default {
       color: #42b983;
     }
   }
+}
+
+img {
+  width: 100%;
 }
 
 .page-enter-active,

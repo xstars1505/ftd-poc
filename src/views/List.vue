@@ -41,7 +41,7 @@ export default {
       setTimeout(() => {
         this.loading = false;
         this.nodes = data;
-      }, 2000)
+      }, 1000)
     );
   },
   methods: {
@@ -62,6 +62,7 @@ img {
   height: auto;
 }
 ul {
+  padding-left: 0;
   list-style: none;
 
   label {
