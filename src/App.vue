@@ -1,19 +1,26 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <transition name="page" mode="out-in">
+      <router-view></router-view>
+    </transition>
+    <Toast></Toast>
   </div>
 </template>
+
+<script>
+import Toast from "primevue/toast";
+
+export default {
+  name: "App",
+  components: { Toast }
+};
+</script>
 
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -28,5 +35,15 @@
       color: #42b983;
     }
   }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(-30%);
 }
 </style>
