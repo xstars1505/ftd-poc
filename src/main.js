@@ -17,5 +17,7 @@ Vue.component("ValidationObserver", ValidationObserver);
 
 new Vue({
   router,
+  linkActiveClass: "active",
+  linkExactActiveClass: "exact-active",
   render: h => h(App)
 }).$mount("#app");

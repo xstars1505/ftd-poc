@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import List from "../views/List";
 import Details from "../views/Details";
+import WorkMenuList from "../views/WorkMenuList";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/details",
     name: "Details",
     component: Details
+  },
+  {
+    path: "/work-menus",
+    name: "WorkMenuList",
+    component: WorkMenuList
   }
 ];
 

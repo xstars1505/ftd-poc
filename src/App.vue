@@ -120,10 +120,12 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link"
-              ><globe-icon size="1.5x" class="custom-class"></globe-icon>
-              <span>仕入一覧</span></a
-            >
+            <router-link :to="{ name: 'WorkMenuList' }">
+              <a href="javascript:void(0)" class="nav-link"
+                ><globe-icon size="1.5x" class="custom-class"></globe-icon>
+                <span>仕入一覧</span></a
+              >
+            </router-link>
           </li>
           <li class="nav-item">
             <a href="javascript:void(0)" class="nav-link"

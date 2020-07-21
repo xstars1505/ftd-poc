@@ -1,0 +1,48 @@
+[
+  {
+    "id": 10001,
+    "date": "2020/07/16",
+    "quantity": 10,
+    "workMenus": [
+      {
+        "id": 1,
+        "name": "Decor",
+        "implementedQuantity": 5
+      },
+      {
+        "id": 2,
+        "name": "Labeling",
+        "implementedQuantity": 6
+      }
+    ]
+  },
+  {
+    "id": 10002,
+    "date": "2020/07/11",
+    "quantity": 11,
+    "workMenus": [
+      {
+        "id": 1,
+        "name": "Decor",
+        "implementedQuantity": 11
+      }
+    ]
+  },
+  {
+    "id": 10003,
+    "date": "2020/07/11",
+    "quantity": 30,
+    "workMenus": [
+      {
+        "id": 1,
+        "name": "Decor",
+        "implementedQuantity": 1
+      },
+      {
+        "id": 2,
+        "name": "Labeling",
+        "implementedQuantity": 20
+      }
+    ]
+  }
+]
