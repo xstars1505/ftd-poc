@@ -178,17 +178,19 @@ export default {
     messageWhenNoItems: "There arent items",
     dataTimeline: [
       {
-        from: new Date(2020, 7, 10),
+        from: new Date(2020, 6, 10),
         description: "You added a shipping address to this order.",
         showDayAndMonth: true
       },
       {
-        from: new Date(2020, 7, 9),
-        description: "You manually marked this order as paid."
+        from: new Date(2020, 6, 9),
+        description: "You manually marked this order as paid.",
+        showDayAndMonth: true
       },
       {
-        from: new Date(2020, 7, 8),
-        description: "You created order"
+        from: new Date(2020, 6, 8),
+        description: "You created order",
+        showDayAndMonth: true
       }
     ]
   }),

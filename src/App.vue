@@ -108,25 +108,26 @@
         </div>
         <ul class="nav nav-aside">
           <li class="nav-label">注文管理</li>
-          <li class="nav-item active">
-            <router-link to="/">
-              <a href="javascript:void(0)" class="nav-link"
-                ><shopping-bag-icon
-                  size="1.5x"
-                  class="custom-class"
-                ></shopping-bag-icon>
-                <span>注文No一覧</span></a
-              >
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link :to="{ name: 'WorkMenuList' }">
-              <a href="javascript:void(0)" class="nav-link"
-                ><globe-icon size="1.5x" class="custom-class"></globe-icon>
-                <span>仕入一覧</span></a
-              >
-            </router-link>
-          </li>
+          <router-link :to="{ name: 'List' }" tag="li" class="nav-item" exact>
+            <a href="javascript:void(0)" class="nav-link"
+              ><shopping-bag-icon
+                size="1.5x"
+                class="custom-class"
+              ></shopping-bag-icon>
+              <span>注文No一覧</span></a
+            >
+          </router-link>
+          <router-link
+            :to="{ name: 'WorkMenuList' }"
+            tag="li"
+            class="nav-item"
+            exact
+          >
+            <a href="javascript:void(0)" class="nav-link"
+              ><globe-icon size="1.5x" class="custom-class"></globe-icon>
+              <span>仕入一覧</span></a
+            >
+          </router-link>
           <li class="nav-item">
             <a href="javascript:void(0)" class="nav-link"
               ><pie-chart-icon
@@ -199,23 +200,21 @@
 import Toast from "primevue/toast";
 import Tooltip from "primevue/tooltip";
 import {
-  SearchIcon,
-  HelpCircleIcon,
-  GridIcon,
   AlignLeftIcon,
-  MessageCircleIcon,
   BellIcon,
+  ChevronDownIcon,
+  GlobeIcon,
+  GridIcon,
+  HelpCircleIcon,
+  LifeBuoyIcon,
   LogOutIcon,
+  MenuIcon,
+  MessageCircleIcon,
+  PieChartIcon,
+  SearchIcon,
   ShoppingBagIcon,
   UserIcon,
-  LifeBuoyIcon,
-  GlobeIcon,
-  PieChartIcon,
-  MenuIcon,
-  XIcon,
-  ChevronDownIcon
-  // SettingsIcon,
-  // EditIcon
+  XIcon
 } from "vue-feather-icons";
 
 export default {
