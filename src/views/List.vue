@@ -56,6 +56,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./src/assets/scss/pages/dashboard.scss";
 img {
   width: 100%;
   height: auto;
