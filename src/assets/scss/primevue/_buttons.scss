@@ -1,0 +1,56 @@
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.p-button {
+  font-size: initial;
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.p-button .p-button-icon-left {
+  margin-right: 0.5rem;
+}
+
+.pi {
+  font-size: 0.5rem;
+}
+
+.p-button-sm {
+  .p-button-label {
+    font-size: 0.7rem;
+  }
+}
+
+.p-button-icon-left {
+  font-size: 0.75rem !important;
+}
+
+.p-button-text {
+  color: $cl-link;
+
+  &:hover {
+    background-color: transparent !important;
+    color: $cl-link-hover !important;
+  }
+}
+.p-button-link {
+  color: $cl-link !important;
+  padding: 0 !important;
+
+  &:hover {
+    background-color: transparent !important;
+    color: $cl-link-hover !important;
+  }
+}
+.actions {
+  .p-button-secondary {
+    &:hover {
+      background-color: transparent;
+      color: $cl-link-hover;
+    }
+  }
+}

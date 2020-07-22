@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="dashboard-content">
     <div class="offset-container">
-      <label class="p-mr-1">表示件数:</label>
+      <label class="p-mr-2 tx-label">表示件数:</label>
       <Dropdown v-model="offset" :options="offsets" optionLabel="label" />
     </div>
     <DataTable
@@ -10,6 +10,7 @@
       :loading="loading"
       :paginator="true"
       paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
+      class="table-default"
     >
       <Column header="">
         <template #body="node">
@@ -80,16 +81,4 @@ export default {
 
 <style scoped lang="scss">
 @import "./src/assets/scss/pages/dashboard.scss";
-img {
-  width: 100%;
-  height: auto;
-}
-ul {
-  padding-left: 0;
-  list-style: none;
-
-  label {
-    margin-right: 10px;
-  }
-}
 </style>

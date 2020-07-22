@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="p-d-flex p-ai-center p-my-3">
+  <div class="order-item">
+    <div class="p-d-flex p-ai-center p-my-3 order-infor">
       <div class="image-container p-mr-3">
         <div class="image">
           <img :src="src" />

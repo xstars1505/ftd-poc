@@ -1,5 +1,5 @@
 <template>
-  <div class="p-grid">
+  <div class="p-grid detail-container">
     <div class="p-col">
       <Button
         icon="pi pi-chevron-left"
@@ -36,11 +36,11 @@
         />
       </div>
 
-      <div class="p-grid">
+      <div class="p-grid main-content">
         <div class="p-col-12 p-md-8">
-          <Card class="p-mb-3">
+          <Card class="card-default">
             <template slot="title">
-              商品削除 (2)
+              <h2 class="title">商品削除 (2)</h2>
             </template>
             <template slot="content">
               <OrderItem
@@ -52,28 +52,35 @@
             </template>
           </Card>
 
-          <Card class="p-mb-3">
+          <Card class="card-default">
             <template slot="title">
-              支払い済
+              <h2 class="title">支払い済</h2>
             </template>
             <template slot="content">
-              <ul>
+              <ul class="total-content">
                 <li>
                   <label>小計</label>
-                  <span> 40 円 </span>
+                  <span class="cl-title"> 40 円 </span>
                 </li>
                 <li>
                   <label>税</label>
-                  <span> 4 円 </span>
+                  <span class="cl-title"> 4 円 </span>
                 </li>
                 <li>
                   <label>合計</label>
-                  <span> 44 円 </span>
+                  <span class="cl-title"> 44 円 </span>
                 </li>
                 <hr />
                 <li>
-                  <label>お客様支払い済</label>
-                  <span> 44 円 </span>
+                  <label
+                    class="tx-normal tx-rubik tx-spacing--1 mg-b-5 font-21 cl-title"
+                    >お客様支払い済</label
+                  >
+                  <span
+                    class="tx-normal tx-rubik tx-spacing--1 mg-b-5 font-21 cl-title"
+                  >
+                    44 円
+                  </span>
                 </li>
               </ul>
             </template>
@@ -91,11 +98,11 @@
           </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
-          <Card class="p-mb-6">
+        <div class="p-col-12 p-md-4 right-col-ct">
+          <Card class="card-default">
             <template slot="title">
               <div class="p-d-flex p-jc-between">
-                メモ
+                <h2 class="title">メモ</h2>
                 <Button label="編集" class="p-button-link" />
               </div>
             </template>
@@ -104,19 +111,19 @@
             </template>
           </Card>
 
-          <Card class="p-mb-1">
+          <Card class="card-default">
             <template slot="title">
-              お客様
+              <h2 class="title">お客様</h2>
             </template>
             <template slot="content">
               お客様なし
             </template>
           </Card>
 
-          <Card class="p-mb-1">
+          <Card class="card-default">
             <template slot="title">
               <div class="p-d-flex p-jc-between">
-                連絡先情報
+                <h2 class="title">連絡先情報</h2>
                 <Button label="編集" class="p-button-link" />
               </div>
             </template>
@@ -126,10 +133,10 @@
             </template>
           </Card>
 
-          <Card>
+          <Card class="card-default">
             <template slot="title">
               <div class="p-d-flex p-jc-between">
-                配送先住所
+                <h2 class="title">配送先住所</h2>
                 <Button label="編集" class="p-button-link" />
               </div>
             </template>

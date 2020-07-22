@@ -187,9 +187,11 @@
         </nav>
       </div>
       <div class="content-body">
-        <transition name="page" mode="out-in">
-          <router-view></router-view>
-        </transition>
+        <div class="container pd-x-0">
+          <transition name="page" mode="out-in">
+            <router-view></router-view>
+          </transition>
+        </div>
       </div>
       <Toast></Toast>
     </div>
