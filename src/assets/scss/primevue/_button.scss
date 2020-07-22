@@ -10,3 +10,21 @@ button {
     box-shadow: none !important;
   }
 }
+
+.p-button .p-button-icon-left {
+  margin-right: 0.5rem;
+}
+
+.pi {
+  font-size: 0.5rem;
+}
+
+.p-button-sm {
+  .p-button-label {
+    font-size: 0.7rem;
+  }
+}
+
+.p-button-icon-left {
+  font-size: 0.75rem !important;
+}

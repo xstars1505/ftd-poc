@@ -3,36 +3,36 @@
     <div class="p-col">
       <Button
         icon="pi pi-chevron-left"
-        label="Orders"
+        label="注文"
         class="p-button-text p-pl-0"
         @click="goToList"
       />
 
       <div class="p-d-flex p-align-baseline">
-        <h2 class="p-my-0">#10001</h2>
-        <span>2020/07/17 10:00 am</span>
+        <h2 class="p-my-0 p-pr-2">#10001</h2>
+        <span>2020/07/17 10:00 午前</span>
       </div>
 
       <div class="actions">
         <Button
           icon="pi pi-print"
-          label="Print"
-          class="p-button-text p-button-secondary p-pl-0"
+          label="プリント"
+          class="p-button-text p-button-secondary p-pl-0 p-button-sm"
         />
         <Button
           icon="pi pi-pencil"
-          label="Edit"
-          class="p-button-text p-button-secondary p-pl-0"
+          label="編集"
+          class="p-button-text p-button-secondary p-pl-0 p-button-sm"
         />
         <Button
           icon="pi pi-copy"
-          label="Duplicate"
-          class="p-button-text p-button-secondary p-pl-0"
+          label="複製"
+          class="p-button-text p-button-secondary p-pl-0 p-button-sm"
         />
         <Button
           icon="pi pi-times"
-          label="Cancel order"
-          class="p-button-text p-button-secondary p-pl-0"
+          label="注文削除"
+          class="p-button-text p-button-secondary p-pl-0 p-button-sm"
         />
       </div>
 
@@ -40,7 +40,7 @@
         <div class="p-col-12 p-md-8">
           <Card class="p-mb-3">
             <template slot="title">
-              List items (2)
+              商品削除 (2)
             </template>
             <template slot="content">
               <OrderItem
@@ -54,25 +54,25 @@
 
           <Card class="p-mb-3">
             <template slot="title">
-              Paid
+              支払い済
             </template>
             <template slot="content">
               <ul>
                 <li>
-                  <label>Subtotal</label>
+                  <label>小計</label>
                   <span> 40 円 </span>
                 </li>
                 <li>
-                  <label>Tax</label>
+                  <label>税</label>
                   <span> 4 円 </span>
                 </li>
                 <li>
-                  <label>Total</label>
+                  <label>合計</label>
                   <span> 44 円 </span>
                 </li>
                 <hr />
                 <li>
-                  <label>Paid by customer</label>
+                  <label>お客様支払い済</label>
                   <span> 44 円 </span>
                 </li>
               </ul>
@@ -80,7 +80,7 @@
           </Card>
 
           <div class="timeline">
-            <h3>Timeline</h3>
+            <p class="timeline-title">タイムライン</p>
             <Timeline
               :timeline-items="dataTimeline"
               :message-when-no-items="messageWhenNoItems"
@@ -95,42 +95,42 @@
           <Card class="p-mb-6">
             <template slot="title">
               <div class="p-d-flex p-jc-between">
-                Notes
-                <Button label="Edit" class="p-button-link" />
+                メモ
+                <Button label="編集" class="p-button-link" />
               </div>
             </template>
             <template slot="content">
-              Notes from customer
+              お客様からのメモはありません
             </template>
           </Card>
 
           <Card class="p-mb-1">
             <template slot="title">
-              Customer
+              お客様
             </template>
             <template slot="content">
-              Customer Name
+              お客様なし
             </template>
           </Card>
 
           <Card class="p-mb-1">
             <template slot="title">
               <div class="p-d-flex p-jc-between">
-                Contact information
-                <Button label="Edit" class="p-button-link" />
+                連絡先情報
+                <Button label="編集" class="p-button-link" />
               </div>
             </template>
             <template slot="content">
-              <p>Email Address</p>
-              <p>Phone number</p>
+              <p>メールアドレスはありません</p>
+              <p>電話番号はありません</p>
             </template>
           </Card>
 
           <Card>
             <template slot="title">
               <div class="p-d-flex p-jc-between">
-                Shipping address
-                <Button label="Edit" class="p-button-link" />
+                配送先住所
+                <Button label="編集" class="p-button-link" />
               </div>
             </template>
             <template slot="content">
@@ -179,17 +179,17 @@ export default {
     dataTimeline: [
       {
         from: new Date(2020, 6, 10),
-        description: "You added a shipping address to this order.",
+        description: "この注文に配送先住所を追加しました。",
         showDayAndMonth: true
       },
       {
         from: new Date(2020, 6, 9),
-        description: "You manually marked this order as paid.",
+        description: "手動でこの注文を支払い済としてマークしました。",
         showDayAndMonth: true
       },
       {
         from: new Date(2020, 6, 8),
-        description: "You created order",
+        description: "この注文を下書き注文#D1から作成しました。",
         showDayAndMonth: true
       }
     ]
@@ -212,8 +212,9 @@ ul {
     justify-content: space-between;
   }
 }
-
-.p-card-title {
+.timeline-title {
   font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 </style>

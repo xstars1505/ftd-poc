@@ -1,11 +1,13 @@
 <template>
   <DataTable :value="nodes" :paginator="true" :rows="5" :loading="loading">
     <Column header="">
-      <template #body="node"> #{{ node.data.id }} </template>
+      <template #body="node"
+        ><a href="javascript:void(0)">#{{ node.data.id }}</a>
+      </template>
     </Column>
-    <Column field="date" header="Date"></Column>
-    <Column field="quantity" header="Quantity"></Column>
-    <Column header="Work Menu">
+    <Column field="date" header="受注日"></Column>
+    <Column field="quantity" header="数量"></Column>
+    <Column header="作業">
       <template #body="node">
         <ul>
           <li v-for="workMenu in node.data.workMenus" :key="workMenu.id">
@@ -49,7 +51,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./src/assets/scss/pages/dashboard.scss";
 ul {
   padding-left: 0;
   margin-bottom: 0;

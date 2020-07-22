@@ -114,7 +114,7 @@
                 size="1.5x"
                 class="custom-class"
               ></shopping-bag-icon>
-              <span>注文No一覧</span></a
+              <span>注文管理</span></a
             >
           </router-link>
           <router-link
@@ -125,7 +125,7 @@
           >
             <a href="javascript:void(0)" class="nav-link"
               ><globe-icon size="1.5x" class="custom-class"></globe-icon>
-              <span>仕入一覧</span></a
+              <span>作業管理</span></a
             >
           </router-link>
           <li class="nav-item">
@@ -271,10 +271,11 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  font-size: 0.85rem;
 }
 
 #nav {

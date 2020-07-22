@@ -5,12 +5,12 @@
         <router-link to="/details">#{{ node.data.id }}</router-link>
       </template>
     </Column>
-    <Column field="date" header="Date"></Column>
-    <Column field="customer" header="Customer"></Column>
-    <Column field="total" header="Total"></Column>
-    <Column field="quantity" header="Quantity"></Column>
-    <Column field="paymentStatus" header="Payment"></Column>
-    <Column field="workMenuStatus" header="Work Menu Status"></Column>
+    <Column field="date" header="日時"></Column>
+    <Column field="customer" header="ユーザー"></Column>
+    <Column field="total" header="合計"></Column>
+    <Column field="quantity" header="数量"></Column>
+    <Column field="paymentStatus" header="請求状態"></Column>
+    <Column field="workMenuStatus" header="作業状態"></Column>
   </DataTable>
 </template>
 

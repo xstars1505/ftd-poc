@@ -1,32 +1,32 @@
 [
   {
     "id": 10001,
-    "date": "2020/07/16 10:00 am",
+    "date": "2020/07/16 10:00",
     "quantity": 10,
     "imageUrl": "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg",
     "customer": "Customer 1",
     "total": 10,
-    "paymentStatus": "Paid",
-    "workMenuStatus": "Done"
+    "paymentStatus": "請求済み",
+    "workMenuStatus": "作業完了"
   },
   {
     "id": 10002,
-    "date": "2020/07/06 09:00 am",
+    "date": "2020/07/06 09:00",
     "quantity": 20,
     "imageUrl": "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg",
     "customer": "Customer 2",
     "total": 100,
-    "paymentStatus": "Pending",
-    "workMenuStatus": "Done"
+    "paymentStatus": "請求中",
+    "workMenuStatus": "作業完了"
   },
   {
     "id": 10003,
-    "date": "2020/06/06 09:00 am",
+    "date": "2020/06/06 09:00",
     "quantity": 21,
     "imageUrl": "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg",
     "customer": "Customer 3",
     "total": 120,
-    "paymentStatus": "Pending",
-    "workMenuStatus": "Pending"
+    "paymentStatus": "請求中",
+    "workMenuStatus": "請求中"
   }
 ]

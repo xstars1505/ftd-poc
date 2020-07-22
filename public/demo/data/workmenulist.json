@@ -6,12 +6,12 @@
     "workMenus": [
       {
         "id": 1,
-        "name": "Decor",
+        "name": "飾り",
         "implementedQuantity": 5
       },
       {
         "id": 2,
-        "name": "Labeling",
+        "name": "ミニ袋入れ",
         "implementedQuantity": 6
       }
     ]
@@ -23,7 +23,7 @@
     "workMenus": [
       {
         "id": 1,
-        "name": "Decor",
+        "name": "飾り",
         "implementedQuantity": 11
       }
     ]
@@ -35,12 +35,12 @@
     "workMenus": [
       {
         "id": 1,
-        "name": "Decor",
+        "name": "飾り",
         "implementedQuantity": 1
       },
       {
         "id": 2,
-        "name": "Labeling",
+        "name": "ミニ袋入れ",
         "implementedQuantity": 20
       }
     ]
