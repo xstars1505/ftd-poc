@@ -10,6 +10,7 @@
       :rows="5"
       :loading="loading"
       paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
+      class="table-default"
     >
       <Column header="">
         <template #body="node"
