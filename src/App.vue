@@ -272,28 +272,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./src/assets/scss/variables";
-@import "./src/assets/scss/bootstrap/variables";
-@import "./src/assets/scss/mixins";
-@import "./src/assets/scss/bootstrap/mixins";
-@import "./node_modules/bootstrap/scss/functions";
-@import "./node_modules/bootstrap/scss/mixins";
-@import "./node_modules/bootstrap/scss/variables";
-@import "./node_modules/bootstrap/scss/type";
-@import "./node_modules/bootstrap/scss/mixins/breakpoints";
-@import "./node_modules/bootstrap/scss/mixins/grid-framework";
-@import "./node_modules/bootstrap/scss/mixins/grid";
-@import "./node_modules/bootstrap/scss/grid";
-@import "./node_modules/bootstrap/scss/utilities/display";
-@import "./node_modules/bootstrap/scss/utilities/flex";
-@import "./node_modules/bootstrap/scss/utilities/spacing";
-@import "./node_modules/bootstrap/scss/transitions";
-@import "./node_modules/bootstrap/scss/utilities/borders";
-@import "./node_modules/bootstrap/scss/navbar";
-@import "./node_modules/bootstrap/scss/forms";
-@import "./node_modules/bootstrap/scss/reboot";
-
-@import "./src/assets/scss/dashforge";
+@import "./src/assets/scss/main";
 #app {
   font-family: "IBM Plex Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
