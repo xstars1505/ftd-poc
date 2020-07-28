@@ -75,7 +75,7 @@
               <Button
                 icon="pi pi-plus"
                 label="Add WM"
-                class="p-button-rounded p-button-text p-button-plain"
+                class="p-button-rounded p-button-text p-button-plain btn-add-workmenu"
                 @click="addNewWorkMenu"
               />
               <CreateWorkMenu
