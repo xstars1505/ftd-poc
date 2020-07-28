@@ -6,7 +6,12 @@
         <Dropdown v-model="offset" :options="offsets" optionLabel="label" />
       </div>
       <div class="create-order-button">
-        <Button label="Create Order" icon="pi pi-plus" @click="createOrder()" />
+        <Button
+          label="Create Order"
+          class="btn-primary"
+          icon="pi pi-plus"
+          @click="createOrder()"
+        />
       </div>
     </div>
     <DataTable

@@ -156,6 +156,7 @@ ul {
 .item-total {
   .price {
     color: $cl-title;
+    white-space: nowrap;
   }
 }
 .order-item {
@@ -164,6 +165,10 @@ ul {
       padding-bottom: 0 !important;
       margin-bottom: 0 !important;
     }
+  }
+  .work-menu {
+    min-width: 90px;
+    text-align: right;
   }
 }
 .detail-container {
@@ -237,15 +242,6 @@ ul {
     padding: 0.5rem !important;
   }
 }
-.p-button.btn-primary,
-.p-fileupload-choose {
-  background-color: #0168fa !important;
-  border-color: #0168fa !important
-}
-.p-button-plain.btn-add-workmenu {
-  margin-bottom: 16px;
-  padding: 0;
-}
 .add-workmenu-control {
   margin-left: 30px;
   margin-bottom: 30px;
@@ -285,12 +281,22 @@ ul {
   .p-dialog-content {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .dialog-creat-workmenu {
     min-height: 150px;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }
   .p-dialog-header {
     border-bottom: 1px solid $cl-border !important;
     padding: 1rem 1.5rem !important;
+  }
+  .p-dialog-footer {
+    border-top: 1px solid $cl-border !important;
+    padding: 1rem 1.5rem !important;
+  }
+  .p-dialog-footer button {
+    margin: 0 !important;
+    min-width: 100px;
   }
 }

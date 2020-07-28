@@ -54,3 +54,12 @@ button {
     }
   }
 }
+.p-button.btn-primary,
+.p-fileupload-choose {
+  background-color: #0168fa !important;
+  border-color: #0168fa !important
+}
+.p-button-plain.btn-add-workmenu {
+  margin-bottom: 16px;
+  padding: 0;
+}
