@@ -132,3 +132,22 @@
     @include media-breakpoint-up(sm) { margin-top: 0; }
   }
 }
+
+.quantity-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .tx-quantity {
+    display: block;
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+
+  .input-content {
+    min-width: 50px;
+  }
+  @media (min-width: 768px) {
+    padding: .5rem !important;
+  }
+}

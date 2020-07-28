@@ -1,5 +1,5 @@
 <template>
-  <div class="p-d-flex p-jc-between">
+  <div class="p-d-flex add-workmenu-item">
     <div class="p-field">
       <Dropdown
         :options="workMenuList"
@@ -7,28 +7,38 @@
         dataKey="id"
         v-model="workMenu"
         @change="emit"
+        class="select-workmenu"
       />
     </div>
 
-    <div class="p-field p-d-flex p-jc-between" v-if="workMenu">
-      <div>
+    <div
+      class="p-field p-d-flex p-jc-between add-workmenu-control"
+      v-if="workMenu"
+    >
+      <div class="input-content">
         <Textarea
           v-if="workMenu.allowComment"
-          rows="5"
+          rows="3"
           cols="30"
           v-model="workMenu.comment"
           @input="emit"
+          class="form-control"
         />
-        <FileUpload
-          v-if="workMenu.attachFile"
-          mode="basic"
-          accept="image/*"
-          name="file"
-          :url="url"
-          :auto="true"
-          @select="myUploader"
-        />
-        <span>{{ (workMenu && workMenu.fileName) || "" }}</span>
+        <div class="upload-content">
+          <FileUpload
+            v-if="workMenu.attachFile"
+            mode="basic"
+            accept="image/*"
+            name="file"
+            :url="url"
+            :auto="true"
+            @select="myUploader"
+            class="btn-primary"
+          />
+          <span class="file-name">{{
+            (workMenu && workMenu.fileName) || ""
+          }}</span>
+        </div>
       </div>
       <Button
         icon="pi pi-minus"

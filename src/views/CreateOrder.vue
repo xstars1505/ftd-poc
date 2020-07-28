@@ -34,7 +34,11 @@
                   v-model="productName"
                   placeholder="Search"
                 />
-                <Button label="Browser" @click="addProduct()" />
+                <Button
+                  label="Browser"
+                  @click="addProduct()"
+                  class="btn-primary"
+                />
               </div>
             </template>
             <template slot="content">
@@ -65,7 +69,7 @@
             </template>
             <template slot="content" v-if="isSet">
               <div class="p-field p-col">
-                <label for="numberOfSet">Number of sets</label>
+                <label for="numberOfSet" class="mr-3">Number of sets</label>
                 <InputNumber id="numberOfSet" v-model="numberOfSet" :min="1" />
               </div>
               <Button
@@ -160,7 +164,7 @@
         </div>
       </div>
       <template #footer>
-        <Button label="Add" @click="addManualProduct" />
+        <Button label="Add" @click="addManualProduct" class="btn-primary" />
       </template>
     </Dialog>
   </div>

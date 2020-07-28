@@ -13,15 +13,15 @@
               <p class="p-my-0">{{ name }}</p>
               <small>{{ attributes.join(" / ") }}</small>
             </div>
-            <div class="quantity p-col-12 p-md-3">
-              {{ quantity }} x
-              <span v-if="editing"
+            <div class="quantity-block p-col-12 p-md-3">
+              <span class="tx-quantity">{{ quantity }} x</span>
+              <span v-if="editing" class="input-content"
                 ><InputText
                   class="w-100"
                   type="number"
                   v-model="newQuantity"
                   placeholder="Search"/></span
-              ><span v-else>{{ price }}</span> 円
+              ><span v-else class="price">{{ price }} 円</span>
             </div>
           </div>
           <div class="item-total">
@@ -56,22 +56,23 @@
     <Dialog
       header="Header"
       :visible.sync="display"
-      :style="{ width: '70vw' }"
+      :style="{ width: '60vw' }"
       :modal="true"
-      :contentStyle="{ overflow: 'visible' }"
     >
-      <Button
-        icon="pi pi-plus"
-        label="Add WM"
-        class="p-button-rounded p-button-text p-button-plain"
-        @click="addNewWorkMenu"
-      />
-      <CreateWorkMenu
-        v-for="(workMenu, index) in workMenus"
-        :key="workMenu && workMenu.id"
-        v-model="workMenus[index]"
-        @removeWorkMenu="removeWorkMenu(index)"
-      />
+      <div class="dialog-creat-workmenu">
+        <Button
+          icon="pi pi-plus"
+          label="Add WM"
+          class="p-button-rounded p-button-text p-button-plain btn-add-workmenu"
+          @click="addNewWorkMenu"
+        />
+        <CreateWorkMenu
+          v-for="(workMenu, index) in workMenus"
+          :key="workMenu && workMenu.id"
+          v-model="workMenus[index]"
+          @removeWorkMenu="removeWorkMenu(index)"
+        />
+      </div>
     </Dialog>
   </div>
 </template>
@@ -148,7 +149,7 @@ export default {
 
   .item-total {
     flex-grow: 0;
-    margin-left: 2rem;
+    margin-left: 0.85rem;
     text-align: right;
   }
 }

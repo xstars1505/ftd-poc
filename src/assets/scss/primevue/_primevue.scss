@@ -25,9 +25,44 @@ ul {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.85rem;
 }
+.p-inputtext {
+  box-shadow: none !important;
+}
+.p-card {
+  .p-card-title {
+    font-size: 1rem !important;
+  }
 
-.p-card .p-card-title {
-  font-size: 1rem !important;
+  &.card-default {
+    border: 1px solid $cl-border;
+    box-shadow: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+
+    .title {
+      color: $cl-title;
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 500;
+      margin: 0;
+    }
+    .p-card-body {
+      padding: 20px;
+    }
+    .p-card-content {
+      color: $cl-note;
+      font-size: 12px;
+      padding: 0 !important;
+
+      p {
+        margin-bottom: 0;
+
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
 }
 
 .p-dropdown-trigger-icon {
@@ -49,36 +84,6 @@ ul {
   }
   .p-dropdown {
     border-color: $cl-border;
-  }
-}
-.card-default {
-  border: 1px solid $cl-border;
-  box-shadow: none;
-  border-radius: 4px;
-  margin-bottom: 10px;
-
-  .title {
-    color: $cl-title;
-    font-size: 14px;
-    line-height: 1.25;
-    font-weight: 500;
-    margin: 0;
-  }
-  .p-card-body {
-    padding: 20px;
-  }
-  .p-card-content {
-    color: $cl-note;
-    font-size: 12px;
-    padding: 0 !important;
-
-    p {
-      margin-bottom: 0;
-
-      &:not(:first-child) {
-        margin-top: 10px;
-      }
-    }
   }
 }
 .p-datatable {
@@ -227,5 +232,65 @@ ul {
     .right-col-ct {
       padding: 0.5rem 0 0 2px !important;
     }
+  }
+  .p-md-4 {
+    padding: 0.5rem !important;
+  }
+}
+.p-button.btn-primary,
+.p-fileupload-choose {
+  background-color: #0168fa !important;
+  border-color: #0168fa !important
+}
+.p-button-plain.btn-add-workmenu {
+  margin-bottom: 16px;
+  padding: 0;
+}
+.add-workmenu-control {
+  margin-left: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+
+  .input-content,
+  .form-control {
+    width: 100%;
+  }
+
+  .p-button-plain {
+    margin-left: 10px;
+    .p-button-icon {
+      font-weight: bolder;
+    }
+  }
+
+  .file-name {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .upload-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14 px;
+    margin-top: 14px;
+  }
+}
+.select-workmenu {
+  min-width: 150px;
+}
+
+.p-dialog {
+  background-color: #fff;
+  border-radius: 3px !important;
+
+  .p-dialog-content {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    min-height: 150px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .p-dialog-header {
+    border-bottom: 1px solid $cl-border !important;
+    padding: 1rem 1.5rem !important;
   }
 }
