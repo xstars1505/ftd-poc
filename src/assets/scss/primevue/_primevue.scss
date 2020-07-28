@@ -10,7 +10,7 @@ body {
   font-size: 0.875rem;
 }
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 ul {
@@ -95,7 +95,7 @@ ul {
     margin-top: 10px;
     .p-datatable-thead {
       border-radius: 5px 5px 0 0;
-      
+
       > tr > th {
         background-color: transparent;
         font-size: 14px;
@@ -125,9 +125,9 @@ ul {
       padding-right: 0;
       padding-top: 16px;
 
-      .p-paginator-first, 
-      .p-paginator-prev, 
-      .p-paginator-next, 
+      .p-paginator-first,
+      .p-paginator-prev,
+      .p-paginator-next,
       .p-paginator-last,
       .p-paginator-pages .p-paginator-page {
         background-color: $bg-paging !important;

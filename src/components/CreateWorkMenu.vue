@@ -33,7 +33,7 @@
             :url="url"
             :auto="true"
             @select="myUploader"
-            class="btn-primary"
+            class="btn-primary p-btn-sm"
           />
           <span class="file-name">{{
             (workMenu && workMenu.fileName) || ""

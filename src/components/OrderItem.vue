@@ -9,24 +9,21 @@
       <div class="item-info">
         <div class="item-container p-d-flex p-jc-between p-ai-center">
           <div class="item-name p-grid p-ai-center p-md-jc-between p-mt-0">
-            <div class="info p-col-12 p-md-9">
+            <div class="info p-col-12 p-sm-6 p-md-8">
               <p class="p-my-0">{{ name }}</p>
               <small>{{ attributes.join(" / ") }}</small>
             </div>
-            <div class="quantity-block p-col-12 p-md-3">
-              <span class="tx-quantity">{{ quantity }} x</span>
+            <div class="quantity-block p-col-12 p-sm-6 p-md-4">
+              <span class="tx-quantity">{{ price }} 円 x</span>
               <span v-if="editing" class="input-content"
-                ><InputText
-                  class="w-100"
-                  type="number"
-                  v-model="newQuantity"
-                  placeholder="Search"/></span
-              ><span v-else class="price">{{ price }} 円</span>
+                ><InputNumber class="w-100" v-model="newQuantity" :min="1"
+              /></span>
+              <span v-else class="price">{{ quantity }}</span>
             </div>
           </div>
-          <div class="item-total">
+          <div class="item-total pl-2">
             <div class="price">
-              {{ quantity * (editing ? newQuantity : price) }} 円
+              {{ +price * (editing ? +newQuantity : +quantity) }} 円
             </div>
           </div>
         </div>
@@ -78,28 +75,31 @@
 </template>
 
 <script>
-import InputText from "primevue/inputtext";
+import InputNumber from "primevue/inputnumber";
 import Dialog from "primevue/dialog";
 import Button from "primevue/button";
 import CreateWorkMenu from "./CreateWorkMenu";
 
 export default {
   name: "OrderItem",
-  components: { CreateWorkMenu, InputText, Dialog, Button },
+  components: { CreateWorkMenu, InputNumber, Dialog, Button },
   props: {
-    src: String,
+    name: String,
+    attributes: Array,
     quantity: Number,
     price: Number,
-    attributes: Array,
+    workMenus: Array,
+    src: String,
     last: Boolean,
-    editing: Boolean,
-    name: String,
-    workMenus: Array
+    editing: Boolean
   },
   data: () => ({
     newQuantity: 1,
     display: false
   }),
+  created() {
+    this.newQuantity = this.quantity || 1;
+  },
   methods: {
     showWorkMenuDialog() {
       this.display = true;
@@ -163,5 +163,8 @@ hr {
 }
 .w-100 {
   width: 100% !important;
+}
+/deep/.p-inputnumber-input {
+  width: 100%;
 }
 </style>
