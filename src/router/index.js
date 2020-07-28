@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import List from "../views/List";
 import Details from "../views/Details";
 import WorkMenuList from "../views/WorkMenuList";
+import CreateOrder from "../views/CreateOrder";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
     path: "/details",
     name: "Details",
     component: Details
+  },
+  {
+    path: "/create-order",
+    name: "CreateOrder",
+    component: CreateOrder
   },
   {
     path: "/work-menus",

@@ -1,8 +1,13 @@
 <template>
   <div class="dashboard-content">
-    <div class="offset-container">
-      <label class="p-mr-2 tx-label">表示件数:</label>
-      <Dropdown v-model="offset" :options="offsets" optionLabel="label" />
+    <div class="p-d-flex p-jc-between p-ai-center">
+      <div class="offset-container">
+        <label class="p-mr-2 tx-label p-mb-0">表示件数:</label>
+        <Dropdown v-model="offset" :options="offsets" optionLabel="label" />
+      </div>
+      <div class="create-order-button">
+        <Button label="Create Order" icon="pi pi-plus" @click="createOrder()" />
+      </div>
     </div>
     <DataTable
       :value="nodes"
@@ -36,10 +41,11 @@ import NodeService from "@/services/NodeService";
 import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 import Dropdown from "primevue/dropdown";
+import Button from "primevue/button";
 
 export default {
   name: "List",
-  components: { DataTable, Column, Dropdown },
+  components: { DataTable, Column, Dropdown, Button },
   data() {
     return {
       show: true,
@@ -69,11 +75,8 @@ export default {
     );
   },
   methods: {
-    goToDetail() {
-      router.push("/details");
-    },
-    test: function(a) {
-      console.log(a);
+    createOrder() {
+      router.push("/create-order");
     }
   }
 };
