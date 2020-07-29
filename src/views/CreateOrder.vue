@@ -420,6 +420,18 @@ ul {
     font-size: 14px;
   }
 }
+/deep/.p-checkbox {
+  width: 15px;
+  height: 15px;
+  .p-checkbox-box {
+    width: 15px;
+    height: 15px;
+
+    span {
+      font-size: 10px;
+    }
+  }
+}
 /deep/.p-button-sm .p-button-label {
   font-size: 0.8rem;
 }
