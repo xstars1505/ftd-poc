@@ -9,7 +9,7 @@
       />
 
       <div class="p-d-flex p-align-baseline">
-        <h2 class="p-my-0 p-pr-2">注文作成</h2>
+        <h5 class="p-my-0 p-pr-2">注文作成</h5>
       </div>
 
       <div class="p-grid main-content">
@@ -92,7 +92,7 @@
                       :url="url"
                       :auto="true"
                       @select="selectImage"
-                      class="p-btn-sm"
+                      class="p-button-sm"
                     />
                   </div>
                 </div>
@@ -171,7 +171,7 @@
         </div>
       </div>
       <div class="p-d-flex p-jc-center mt-5">
-        <Button label="保存する" class="p-button p-btn-sm btn-primary" />
+        <Button label="保存する" class="p-button p-button-sm btn-primary" />
       </div>
     </div>
 
@@ -419,5 +419,8 @@ ul {
   label {
     font-size: 14px;
   }
+}
+/deep/.p-button-sm .p-button-label {
+  font-size: 0.8rem;
 }
 </style>

@@ -7,7 +7,7 @@
       </div>
       <div class="create-order-button">
         <Button
-          label="Create Order"
+          label="注文を作成する"
           class="btn-primary"
           icon="pi pi-plus"
           @click="createOrder()"
