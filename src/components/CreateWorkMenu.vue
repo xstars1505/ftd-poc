@@ -27,6 +27,7 @@
         <div class="upload-content">
           <FileUpload
             v-if="workMenu.attachFile"
+            chooseLabel="添付ファイル"
             mode="basic"
             accept="image/*"
             name="file"

@@ -34,10 +34,10 @@
             href="javascript:void(0)"
             v-if="workMenus[0] && workMenus[0].id"
             @click="showWorkMenuDialog"
-            >Details</a
+            >詳細</a
           >
           <a href="javascript:void(0)" v-else @click="showWorkMenuDialog"
-            >Add Workmenu</a
+            >作業メニューを追加</a
           >
         </div>
         <Button
@@ -51,7 +51,7 @@
     <hr v-if="!last" />
 
     <Dialog
-      header="Add Work Menu"
+      header="作業メニューを追加"
       :visible.sync="display"
       :style="{ width: '60vw' }"
       :modal="true"
@@ -59,7 +59,7 @@
       <div class="dialog-creat-workmenu">
         <Button
           icon="pi pi-plus"
-          label="Add WM"
+          label="作業メニューを追加"
           class="p-button-rounded p-button-text p-button-plain btn-add-workmenu"
           @click="addNewWorkMenu"
         />

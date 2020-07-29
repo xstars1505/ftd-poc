@@ -9,7 +9,7 @@
       />
 
       <div class="p-d-flex p-align-baseline">
-        <h2 class="p-my-0 p-pr-2">Create order</h2>
+        <h2 class="p-my-0 p-pr-2">注文作成</h2>
       </div>
 
       <div class="p-grid main-content">
@@ -17,9 +17,9 @@
           <Card class="card-default">
             <template slot="title">
               <div class="p-d-flex p-jc-between p-ai-center p-mb-2">
-                <h2 class="title">Order details</h2>
+                <h2 class="title">注文詳細</h2>
                 <Button
-                  label="Add product manually"
+                  label="手動で商品を追加"
                   class="p-button-text p-button-plain p-button-sm"
                   @click.prevent="showAddProductDialog"
                 />
@@ -66,22 +66,17 @@
           <Card class="card-default">
             <template slot="title">
               <div class="p-d-flex p-jc-between p-ai-center mb-2">
-                <h2 class="title">Set</h2>
+                <h2 class="title">セット</h2>
                 <div class="p-field-checkbox mb-0">
-                  <Checkbox
-                    id="isSet"
-                    label="Is Set"
-                    :binary="true"
-                    v-model="isSet"
-                  />
-                  <label class="mb-0" for="isSet">Is Set</label>
+                  <Checkbox id="isSet" :binary="true" v-model="isSet" />
+                  <label class="mb-0" for="isSet">セット組む</label>
                 </div>
               </div>
             </template>
             <template slot="content" v-if="isSet">
               <div class="p-fluid p-grid p-formgrid">
                 <div class="p-field p-col-12">
-                  <label class="mr-3">Image</label>
+                  <label class="mr-3">画像</label>
                   <div class="image-upload-content d-flex align-items-end">
                     <img
                       class="img-object-fit-cover mr-2"
@@ -91,6 +86,7 @@
                     />
                     <FileUpload
                       mode="basic"
+                      chooseLabel="画像をアップロード"
                       accept="image/*"
                       name="file"
                       :url="url"
@@ -101,11 +97,11 @@
                   </div>
                 </div>
                 <div class="p-field p-col-12 p-md-6">
-                  <label for="setName" class="mr-3">Set Name</label>
+                  <label for="setName" class="mr-3">セット名</label>
                   <InputText id="setName" v-model="setName" />
                 </div>
                 <div class="p-field p-col-12 p-md-6">
-                  <label for="numberOfSet" class="mr-3">Number of sets</label>
+                  <label for="numberOfSet" class="mr-3">セット数量</label>
                   <InputNumber
                     id="numberOfSet"
                     v-model="numberOfSet"
@@ -118,7 +114,7 @@
 
               <Button
                 icon="pi pi-plus"
-                label="Add WM"
+                label="作業メニューを追加"
                 class="p-button-rounded p-button-text p-button-plain btn-add-workmenu"
                 @click="addNewWorkMenu"
               />
@@ -175,12 +171,12 @@
         </div>
       </div>
       <div class="p-d-flex p-jc-center mt-5">
-        <Button label="Save" class="p-button p-btn-sm btn-primary" />
+        <Button label="保存する" class="p-button p-btn-sm btn-primary" />
       </div>
     </div>
 
     <Dialog
-      header="Add Product"
+      header="商品追加"
       :visible.sync="isShowAddProductDialog"
       :style="{ width: '70vw' }"
       :modal="true"
@@ -188,19 +184,19 @@
     >
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-4">
-          <label for="name">Name</label>
+          <label for="name">商品名</label>
           <InputText id="name" type="text" v-model="newProduct.name" />
         </div>
         <div class="p-field p-col-12 p-md-4">
-          <label for="price">Price</label>
+          <label for="price">商品単価</label>
           <InputNumber id="price" v-model="newProduct.price" />
         </div>
         <div class="p-field p-col-12 p-md-4">
-          <label for="quantity">Quantity</label>
+          <label for="quantity">個数</label>
           <InputNumber id="quantity" v-model="newProduct.quantity" />
         </div>
         <div class="p-field p-col-12 p-md-4">
-          <label for="productUrl">Product Url</label>
+          <label for="productUrl">商品のURL</label>
           <InputText
             id="productUrl"
             type="text"
@@ -209,7 +205,11 @@
         </div>
       </div>
       <template #footer>
-        <Button label="Add" @click="addManualProduct" class="btn-primary" />
+        <Button
+          label="商品を追加"
+          @click="addManualProduct"
+          class="btn-primary"
+        />
       </template>
     </Dialog>
   </div>
@@ -267,7 +267,7 @@ export default {
     note: "",
     numberOfSet: 1,
     newProduct: {
-      name: "Manual Product",
+      name: "手動商品",
       quantity: 1,
       price: 1,
       attributes: [],
@@ -359,7 +359,7 @@ export default {
     addManualProduct() {
       this.items.push({ ...this.newProduct });
       this.newProduct = {
-        name: "Manual Product",
+        name: "手動商品",
         quantity: 1,
         price: 1,
         attributes: [],
