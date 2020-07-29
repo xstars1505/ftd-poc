@@ -63,9 +63,9 @@
 
           <Card class="card-default">
             <template slot="title">
-              <div class="p-d-flex p-jc-between">
+              <div class="p-d-flex p-jc-between p-ai-center mb-2">
                 <h2 class="title">Set</h2>
-                <div class="p-field-checkbox">
+                <div class="p-field-checkbox mb-0">
                   <Checkbox
                     id="isSet"
                     label="Is Set"
@@ -414,6 +414,11 @@ ul {
   }
   input {
     flex: 1 1 auto;
+  }
+}
+.p-field-checkbox {
+  label {
+    font-size: 14px;
   }
 }
 </style>
