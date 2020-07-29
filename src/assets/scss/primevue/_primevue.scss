@@ -170,8 +170,15 @@ label {
     }
   }
   .work-menu {
-    min-width: 90px;
+    min-width: 100px;
     text-align: right;
+    word-break: break-all;
+  }
+  .right-content-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 170px;
   }
 }
 .detail-container {

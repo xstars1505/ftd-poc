@@ -9,42 +9,46 @@
       <div class="item-info">
         <div class="item-container p-d-flex p-jc-between p-ai-center">
           <div class="item-name p-grid p-ai-center p-md-jc-between p-mt-0">
-            <div class="info p-col-12 p-sm-6 p-md-8">
+            <div class="info p-col-12 p-sm-6 p-md-6">
               <p class="p-my-0">{{ name }}</p>
               <small>{{ attributes.join(" / ") }}</small>
             </div>
-            <div class="quantity-block p-col-12 p-sm-6 p-md-4">
-              <span class="tx-quantity">{{ price }} 円 x</span>
-              <span v-if="editing" class="input-content"
-                ><InputNumber class="w-100" v-model="newQuantity" :min="1"
-              /></span>
-              <span v-else class="price">{{ quantity }}</span>
-            </div>
-          </div>
-          <div class="item-total pl-2">
-            <div class="price">
-              {{ +price * (editing ? +newQuantity : +quantity) }} 円
+            <div class="quantity-block p-col-12 p-sm-6 p-md-6">
+              <div class="p-d-flex p-ai-center">
+                <span v-if="editing" class="input-content"
+                  ><InputNumber class="w-100" v-model="newQuantity" :min="1"
+                /></span>
+                <span v-else class="price">{{ quantity }}</span>
+                <span class="tx-quantity">x {{ price }} 円</span>
+              </div>
+              <div class="item-total">
+                <div class="price">
+                  {{ +price * (editing ? +newQuantity : +quantity) }} 円
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <template v-if="editing">
-        <div class="work-menu p-mx-3">
-          <a
-            href="javascript:void(0)"
-            v-if="workMenus[0] && workMenus[0].id"
-            @click="showWorkMenuDialog"
-            >詳細</a
-          >
-          <a href="javascript:void(0)" v-else @click="showWorkMenuDialog"
-            >作業メニューを追加</a
-          >
+        <div class="right-content-action">
+          <div class="work-menu p-mx-3">
+            <a
+              href="javascript:void(0)"
+              v-if="workMenus[0] && workMenus[0].id"
+              @click="showWorkMenuDialog"
+              >詳細</a
+            >
+            <a href="javascript:void(0)" v-else @click="showWorkMenuDialog"
+              >作業メニューを追加</a
+            >
+          </div>
+          <Button
+            class="p-button-rounded p-button-text p-button-plain"
+            icon="pi pi-times"
+            @click="onRemoveItem()"
+          />
         </div>
-        <Button
-          class="p-button-rounded p-button-text p-button-plain"
-          icon="pi pi-times"
-          @click="onRemoveItem()"
-        />
       </template>
     </div>
 

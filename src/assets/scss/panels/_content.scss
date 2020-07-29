@@ -140,12 +140,12 @@
 
   .tx-quantity {
     display: block;
-    margin-right: 10px;
+    margin-left: 6px;
     white-space: nowrap;
   }
 
   .input-content {
-    min-width: 50px;
+    width: 70px;
   }
   @media (min-width: 768px) {
     padding: .5rem !important;
