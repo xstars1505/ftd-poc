@@ -316,7 +316,16 @@ label {
     white-space: nowrap;
   }
 }
-
+.p-checkbox .p-checkbox-box:not(.p-disabled).p-focus {
+  border-color: #0168fa !important;
+  outline: none !important;
+}
+.p-checkbox .p-checkbox-box.p-highlight {
+  background-color: #0168fa !important;
+  border-color: #0168fa !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
 @media (min-width: 768px) {
   .detail-container {
     .right-col-ct {
