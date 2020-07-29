@@ -51,7 +51,7 @@
     <hr v-if="!last" />
 
     <Dialog
-      header="Header"
+      header="Add Work Menu"
       :visible.sync="display"
       :style="{ width: '60vw' }"
       :modal="true"

@@ -99,6 +99,10 @@
                   </div>
                 </div>
                 <div class="p-field p-col-12 p-md-6">
+                  <label for="setName" class="mr-3">Set Name</label>
+                  <InputText id="setName" v-model="setName" />
+                </div>
+                <div class="p-field p-col-12 p-md-6">
                   <label for="numberOfSet" class="mr-3">Number of sets</label>
                   <InputNumber
                     id="numberOfSet"
@@ -106,11 +110,10 @@
                     :min="1"
                   />
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                  <label for="setName" class="mr-3">Set Name</label>
-                  <InputText id="setName" v-model="setName" />
-                </div>
               </div>
+
+              <hr />
+
               <Button
                 icon="pi pi-plus"
                 label="Add WM"
@@ -131,17 +134,10 @@
         <div class="p-col-12 p-md-4 right-col-ct">
           <Card class="card-default">
             <template slot="title">
-              <div class="p-d-flex p-jc-between">
-                <h2 class="title">メモ</h2>
-                <Button
-                  label="編集"
-                  class="p-button-link"
-                  @click="editNote = true"
-                />
-              </div>
+              <h2 class="title">メモ</h2>
             </template>
             <template slot="content">
-              {{ note || "お客様からのメモはありません" }}
+              <Textarea v-model="note" class="w-100" :rows="5" />
             </template>
           </Card>
 
@@ -183,19 +179,6 @@
         <Button label="Save" class="p-button p-btn-sm" />
       </div>
     </div>
-
-    <Dialog
-      header="Add Note"
-      :visible.sync="editNote"
-      :style="{ width: '60vw' }"
-      :modal="true"
-    >
-      <h4>Note</h4>
-      <Textarea v-model="noteInDialog" class="w-100" rows="7" />
-      <template #footer>
-        <Button label="Add" @click="addNote" :disabled="!noteInDialog" />
-      </template>
-    </Dialog>
 
     <Dialog
       header="Add Product"
@@ -283,8 +266,6 @@ export default {
     isSet: false,
     setName: "",
     note: "",
-    noteInDialog: "",
-    editNote: false,
     numberOfSet: 1,
     newProduct: {
       name: "Manual Product",
@@ -363,11 +344,6 @@ export default {
     selectImage(event) {
       this.src = event.files[0].objectURL;
       console.log(event.files[0].objectURL);
-    },
-    addNote() {
-      this.note = this.noteInDialog;
-      this.noteInDialog = "";
-      this.editNote = false;
     },
     addProduct() {
       this.items.push({
