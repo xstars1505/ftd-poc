@@ -21,6 +21,9 @@ ul {
     margin-right: 10px;
   }
 }
+label {
+  font-size: 14px !important;
+}
 .p-component {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.85rem;
@@ -232,16 +235,6 @@ ul {
     padding-right: 10px !important;
   }
 }
-@media (min-width: 768px) {
-  .detail-container {
-    .right-col-ct {
-      padding: 0.5rem 0 0 2px !important;
-    }
-  }
-  .p-md-4 {
-    padding: 0.5rem !important;
-  }
-}
 .add-workmenu-control {
   margin-left: 30px;
   margin-bottom: 30px;
@@ -271,6 +264,7 @@ ul {
   }
 }
 .select-workmenu {
+  height: 40px;
   min-width: 150px;
 }
 
@@ -298,5 +292,38 @@ ul {
   .p-dialog-footer button {
     margin: 0 !important;
     min-width: 100px;
+  }
+}
+.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
+  background-color: rgbargb(67, 175, 255,  0.13);
+}
+.product-item-autocomplate {
+  display: flex;
+  align-items: center;
+
+  .main-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  .product-name {
+    font-size: 12px;
+    margin-left: 10px;
+    margin-bottom: 0;
+  }
+  .text-right {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .detail-container {
+    .right-col-ct {
+      padding: 0.5rem 0 0 2px !important;
+    }
+  }
+  .p-md-4 {
+    padding: 0.5rem !important;
   }
 }

@@ -34,16 +34,18 @@
                   class="w-100"
                 >
                   <template #item="slotProps">
-                    <div class="country-item d-flex justify-content-between">
-                      <img
-                        width="80"
-                        height="80"
-                        class="img-object-fit-cover"
-                        :src="slotProps.item.src"
-                      />
+                    <div class="country-item product-item-autocomplate">
+                      <div class="main-info">
+                        <img
+                          width="40"
+                          height="40"
+                          class="img-object-fit-cover"
+                          :src="slotProps.item.src"
+                        />
+                        <h5 class="product-name">{{ slotProps.item.name }}</h5>
+                      </div>
                       <div class="text-right">
-                        <p>{{ slotProps.item.name }}</p>
-                        <p>{{ slotProps.item.price }} 円</p>
+                        <span class="price">{{ slotProps.item.price }} 円</span>
                       </div>
                     </div>
                   </template>
@@ -112,7 +114,7 @@
                 </div>
               </div>
 
-              <hr />
+              <hr class="mt-1" />
 
               <Button
                 icon="pi pi-plus"
@@ -172,11 +174,8 @@
           </Card>
         </div>
       </div>
-
-      <hr />
-
-      <div class="p-d-flex p-jc-end">
-        <Button label="Save" class="p-button p-btn-sm" />
+      <div class="p-d-flex p-jc-center mt-5">
+        <Button label="Save" class="p-button p-btn-sm btn-primary" />
       </div>
     </div>
 
