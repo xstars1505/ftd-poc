@@ -33,6 +33,7 @@
           icon="pi pi-times"
           label="注文削除"
           class="p-button-text p-button-secondary p-pl-0 p-button-sm"
+          @click="showCancelDialog = true"
         />
       </div>
 
@@ -147,12 +148,63 @@
         </div>
       </div>
     </div>
+
+    <Dialog
+      :header="isCloningOrder ? 'Clone Order' : 'Confirmation'"
+      :visible.sync="showCancelDialog"
+      :style="{ width: isCloningOrder ? '80vw' : '40vw' }"
+      :modal="true"
+      @hide="resetCancel"
+    >
+      <div class="confirmation-content">
+        <template v-if="!isCloningOrder">
+          <span>Are you sure you want to cancel?</span>
+        </template>
+        <template v-else>
+          <OrderItem
+            v-for="(item, index) in cloneItems"
+            :key="item.id"
+            v-bind="item"
+            :last="index === items.length - 1"
+            editing
+            @removeItem="removeItem(index)"
+          />
+        </template>
+      </div>
+      <template #footer>
+        <template v-if="!isCloningOrder">
+          <Button
+            label="No"
+            @click="showCancelDialog = false"
+            class="p-button-outlined p-button-sm"
+          />
+          <Button
+            label="Yes"
+            @click="showCloneOrderDialog"
+            class="p-button p-button-sm"
+          />
+        </template>
+        <template v-else>
+          <Button
+            label="Cancel"
+            @click="resetCancel"
+            class="p-button-outlined p-button-sm"
+          />
+          <Button
+            label="Clone"
+            @click="cloneOrder"
+            class="p-button p-button-sm"
+          />
+        </template>
+      </template>
+    </Dialog>
   </div>
 </template>
 
 <script>
 import Button from "primevue/button";
 import Card from "primevue/card";
+import Dialog from "primevue/dialog";
 import OrderItem from "@/components/OrderItem";
 import Timeline from "timeline-vuejs";
 
@@ -160,24 +212,29 @@ import router from "@/router";
 
 export default {
   name: "Details",
-  components: { OrderItem, Button, Card, Timeline },
+  components: { OrderItem, Button, Card, Timeline, Dialog },
   data: () => ({
+    showCancelDialog: false,
+    isCloningOrder: false,
+    cloneItems: [],
     items: [
       {
         id: 1,
         name: "Shirt",
         attributes: ["L", "Red"],
-        quantity: 2,
+        quantity: 1,
         price: 10,
+        workMenus: [],
         src:
           "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg"
       },
       {
         id: 2,
-        name: "Shirt",
-        attributes: ["M", "Red"],
-        quantity: 2,
-        price: 10,
+        name: "T-Shirt",
+        attributes: ["L", "Red"],
+        quantity: 1,
+        price: 20,
+        workMenus: [],
         src:
           "http://gd4.alicdn.com/imgextra/i1/0/O1CN01Fiy0n82IrlrW1HlEz_!!0-item_pic.jpg"
       }
@@ -204,6 +261,26 @@ export default {
   methods: {
     goToList() {
       router.push("/");
+    },
+    showCloneOrderDialog() {
+      this.cloneItems = [...this.items];
+      this.isCloningOrder = true;
+    },
+    cloneOrder() {
+      this.$toast.add({
+        severity: "success",
+        summary: "",
+        detail: "Clone successfully",
+        life: 3000
+      });
+      router.push("/");
+    },
+    removeItem(index) {
+      this.cloneItems.splice(index, 1);
+    },
+    resetCancel() {
+      this.showCancelDialog = false;
+      this.isCloningOrder = false;
     }
   }
 };
@@ -223,5 +300,8 @@ ul {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+}
+/deep/.p-dialog .p-dialog-footer button {
+  margin-right: 0.5rem !important;
 }
 </style>
