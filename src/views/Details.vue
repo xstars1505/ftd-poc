@@ -150,7 +150,7 @@
     </div>
 
     <Dialog
-      :header="isCloningOrder ? 'Clone Order' : 'Confirmation'"
+      :header="isCloningOrder ? '商品をコピーする' : '確認する'"
       :visible.sync="showCancelDialog"
       :style="{ width: isCloningOrder ? '80vw' : '40vw' }"
       :modal="true"
@@ -158,7 +158,9 @@
     >
       <div class="confirmation-content">
         <template v-if="!isCloningOrder">
-          <span>Are you sure you want to cancel?</span>
+          <span
+            >削除してよろしいですか。よろしければ「はい」ボタンをクリックしてください？</span
+          >
         </template>
         <template v-else>
           <OrderItem
@@ -174,24 +176,24 @@
       <template #footer>
         <template v-if="!isCloningOrder">
           <Button
-            label="No"
+            label="いいえ"
             @click="showCancelDialog = false"
             class="p-button-outlined p-button-sm"
           />
           <Button
-            label="Yes"
+            label=" はい"
             @click="showCloneOrderDialog"
             class="p-button p-button-sm"
           />
         </template>
         <template v-else>
           <Button
-            label="Cancel"
+            label="キャンセル"
             @click="resetCancel"
             class="p-button-outlined p-button-sm"
           />
           <Button
-            label="Clone"
+            label="コピーする"
             @click="cloneOrder"
             class="p-button p-button-sm"
           />
@@ -270,7 +272,7 @@ export default {
       this.$toast.add({
         severity: "success",
         summary: "",
-        detail: "Clone successfully",
+        detail: "商品がコピーされました。",
         life: 3000
       });
       router.push("/");
